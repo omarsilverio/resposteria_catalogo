@@ -15,6 +15,7 @@
   <link href="<?= resources('css/font-awesome.min.css') ?>" rel="stylesheet" />
   <link href="<?= resources('css/style.css') ?>"   rel="stylesheet" />
   <link href="<?= resources('css/responsive.css')?>"  rel="stylesheet" />
+  <base href="/">
  
 </head>
 

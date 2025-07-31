@@ -3,16 +3,17 @@
 :root {
   --color-primario: #0d6efd;
   --color-secundario: #6c757d;
-  --color-terciario: #ffbe33;
+  --color-terciario: #C02587;
   --color-cuartario: #e69c00;
-  --color-quinto: #BC7C9C;
+  --color-quinto: #C02587;
+  --color-septimo: #ffffff;
   --color-sexto: #222222;
-  --color-fondo: #ffffff;
+  --color-fondo: #FFE7F0;
   --color-fuente-principal: #0c0c0c;
   --color-fuente-secundario: #ffffff;
   --color-fuente-terciario: #d10000;
-  --fuente-principal: "Open Sans", sans-serif;
-  --fuente-titulos: 'Dancing Script', cursive;
+  --fuente-principal: 'Poppins', sans-serif;
+  --fuente-titulos: 'Poppins', sans-serif;
 }
 
 body {
@@ -109,6 +110,7 @@ a:focus {
 .hero_area {
   position: relative;
   min-height: 100vh;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,7 +125,7 @@ a:focus {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .bg-box img {
@@ -192,7 +194,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: var(--color-terciario);
+  color: var(--color-fuente-secundario);
 }
 
 .custom_nav-container .nav_search-btn {
