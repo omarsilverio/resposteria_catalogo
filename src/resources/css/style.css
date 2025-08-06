@@ -11,7 +11,7 @@
   --color-fondo: #FFE7F0;
   --color-fuente-principal: #0c0c0c;
   --color-fuente-secundario: #ffffff;
-  --color-fuente-terciario: #d10000;
+  --color-fuente-terciario: #C02587;
   --fuente-principal: 'Poppins', sans-serif;
   --fuente-titulos: 'Poppins', sans-serif;
 }
@@ -193,9 +193,30 @@ a:focus {
   transition: all 0.3s;
 }
 
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: var(--color-fuente-secundario);
+.custom_nav-container .navbar-nav .nav-link {
+  position: relative;
+  display: inline-block; /* para que el ::after se limite al texto */
 }
+
+.custom_nav-container .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 80%; /* igual que el texto */
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--color-fondo);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link::after,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link::after {
+  transform:  translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
 
 .custom_nav-container .nav_search-btn {
   width: auto;
@@ -513,6 +534,8 @@ a:focus {
   padding: 7px 25px;
   cursor: pointer;
   border-radius: 25px;
+  color: var(--color-quinto);
+  font-weight: bold;
 }
 
 .food_section .filters_menu li.active {
@@ -633,8 +656,8 @@ a:focus {
 }
 
 .about_section {
-  color: var(--color-fuente-terciario);
-  background: var(--color-fondo);
+  color: var(--color-fuente-secundario);
+  background: var(--color-terciario);
 }
 
 .about_section .row {
@@ -667,8 +690,8 @@ a:focus {
 .about_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: var(--color-terciario);
-  color: var(--color-fuente-secundario);
+  background-color: var(--color-fondo);
+  color: var(--color-quinto);
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -788,7 +811,7 @@ a:focus {
 
 .client_section .box .img-box img {
   border-radius: 100%;
-  border: 5px solid var(--color-terciario);
+  border: 5px solid var(--color-quinto);
   position: relative;
 }
 
@@ -799,14 +822,19 @@ a:focus {
   top: 0;
   width: 20px;
   height: 20px;
-  background-color: var(--color-terciario);
+  background-color: var(--color-quinto);
   -webkit-transform: rotate(45deg) translateX(-50%);
           transform: rotate(45deg) translateX(-50%);
 }
 
 .client_section .box .detail-box {
+  /*background: linear-gradient(
+    to bottom,
+    var(--color-quinto),
+    var(--color-sexto)
+  );*/
   background-color: var(--color-quinto);
-  color: var(--color-fuente-secundario);
+  color: #ffffff;
   padding: 25px 25px 15px 25px;
   border-radius: 5px;
 }
@@ -836,10 +864,10 @@ a:focus {
 
 .client_section .owl-carousel .owl-nav .owl-prev,
 .client_section .owl-carousel .owl-nav .owl-next {
-  width: 45px;
+   width: 45px;
   height: 45px;
-  background-color: var(--color-terciario);
-  color: var(--color-fuente-secundario);
+  background-color: var(--color-quinto);
+  color: #ffffff;
   outline: none;
   bottom: 0px;
   font-size: 24px;
@@ -864,24 +892,24 @@ a:focus {
   background-color: transparent;
   border: 1px solid #ccc;
   outline: none;
-  color: #000000;
+  color: var(--color-quinto);
   border-radius: 5px;
 }
 
 .contact_section .form_container input::-webkit-input-placeholder {
-  color: var(--color-sexto);
+  color: var(--color-quinto);
 }
 
 .contact_section .form_container input:-ms-input-placeholder {
-  color: var(--color-sexto);
+  color: var(--color-quinto);
 }
 
 .contact_section .form_container input::-ms-input-placeholder {
-  color: var(--color-sexto);
+  color: var(--color-quinto);
 }
 
 .contact_section .form_container input::placeholder {
-  color: var(--color-sexto);
+  color: var(--color-quinto);
 }
 
 .contact_section .form_container input.message-box {
@@ -904,8 +932,8 @@ a:focus {
   text-transform: uppercase;
   display: inline-block;
   padding: 10px 55px;
-  background-color: var(--color-terciario);
-  color: var(--color-fuente-secundario);
+  background-color: var(--color-quinto);
+  color: #ffffff;
   border-radius: 0px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -913,7 +941,7 @@ a:focus {
 }
 
 .contact_section .form_container button:hover {
-  background-color: var(--color-cuartario);
+   background-color: var(--color-quinto);
 }
 
 /* footer section*/
@@ -1033,4 +1061,8 @@ a:focus {
   width: 100%;
   height: 80px;
   margin-bottom: -1px; /* para eliminar separación visual */
+}
+.subtitle {
+  color: var(--color-quinto);
+  text-shadow: 0 0 .2em rgba(0,0,0,.5);
 }

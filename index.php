@@ -20,7 +20,7 @@ require_once __DIR__ . '/src/helpers/view.php';
     <section class="slider_section"  ng-show="currentPath === '/'">
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item ">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
@@ -41,7 +41,7 @@ require_once __DIR__ . '/src/helpers/view.php';
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item active">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">

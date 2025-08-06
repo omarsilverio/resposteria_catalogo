@@ -1,12 +1,12 @@
 <section class="food_section layout_padding" ng-controller="catalogoController">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2>
+      <h2 class="subtitle">
         Catalogo
       </h2>
     </div>
 
-    <ul class="filters_menu">
+    <ul class="filters_menu" isotope-filter>
       <li class="active" data-filter="*">Todo</li>
       <li ng-repeat="filtro in filtros" data-filter=".{{filtro.descripcion}}">
         {{filtro.descripcion}}
@@ -14,7 +14,7 @@
     </ul>
 
     <div class="filters-content">
-      <div class="row grid">
+      <div class="row grid" isotope-grid>
         <div ng-repeat="postre in postres" class="col-sm-6 col-lg-4 all {{ postre.tipo }}">
           <div class="box">
             <div>
