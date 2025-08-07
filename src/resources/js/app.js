@@ -158,6 +158,42 @@ app.config(['$controllerProvider', '$routeProvider','$locationProvider', functio
           return deferred.promise;
         }
       }
+    }).when('/login', {
+      templateUrl: 'src/views/login.php',
+      controller: 'loginController',
+      resolve: {
+        loadController: function($q, $rootScope) {
+          const deferred = $q.defer();
+
+          // ✅ Carga el script dinámicamente
+          const script = document.createElement('script');
+          script.src = 'src/resources/js/controllers/controllerLogin.js';
+          script.onload = function() {
+            $rootScope.$apply(() => deferred.resolve());
+          };
+          document.head.appendChild(script);
+
+          return deferred.promise;
+        }
+      }
+    }).when('/agregar-producto', {
+      templateUrl: 'src/views/agregar_producto.php',
+      controller: 'productoController',
+      resolve: {
+        loadController: function($q, $rootScope) {
+          const deferred = $q.defer();
+
+          // ✅ Carga el script dinámicamente
+          const script = document.createElement('script');
+          script.src = 'src/resources/js/controllers/controllerProducto.js';
+          script.onload = function() {
+            $rootScope.$apply(() => deferred.resolve());
+          };
+          document.head.appendChild(script);
+
+          return deferred.promise;
+        }
+      }
     }).otherwise({ redirectTo: '/404' });
 
 }]);

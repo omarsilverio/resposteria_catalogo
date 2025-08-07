@@ -23,6 +23,12 @@
             <li class="nav-item" ng-class="currentPath === '/contacto' ? 'active' : ''">
                 <a class="nav-link" href="contacto">Contacto </a>
             </li>
+            <li class="nav-item" ng-class="currentPath === '/login' ? 'active' : ''">
+                <a class="nav-link" href="login"> Login </a>
+            </li>
+            <li class="nav-item" ng-class="currentPath === '/agregar-producto' ? 'active' : ''">
+                <a class="nav-link" href="agregar-producto"> Agregar Producto </a>
+            </li>
         </ul>
         </div>
     </nav>
