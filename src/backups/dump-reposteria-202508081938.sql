@@ -131,15 +131,15 @@ CREATE TABLE `productos` (
   `stock` smallint(6) NOT NULL DEFAULT 0,
   `visualizar` tinyint(1) NOT NULL DEFAULT 1,
   `fk_usuarios` smallint(6) NOT NULL,
-  `fk_categorias` smallint(6) NOT NULL,
+  `fk_subcategorias` smallint(6) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`pk_productos`),
   KEY `productos_FK` (`fk_usuarios`),
-  KEY `productos_FK_1` (`fk_categorias`),
+  KEY `productos_FK_1` (`fk_subcategorias`),
   CONSTRAINT `productos_FK` FOREIGN KEY (`fk_usuarios`) REFERENCES `usuarios` (`pk_usuarios`),
-  CONSTRAINT `productos_FK_1` FOREIGN KEY (`fk_categorias`) REFERENCES `categorias` (`pk_categorias`)
+  CONSTRAINT `productos_FK_1` FOREIGN KEY (`fk_subcategorias`) REFERENCES `subcategorias` (`pk_subcategorias`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -219,7 +219,7 @@ CREATE TABLE `roles` (
   `pk_roles` smallint(6) NOT NULL AUTO_INCREMENT,
   `rol` varchar(20) NOT NULL,
   PRIMARY KEY (`pk_roles`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +228,34 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'admin');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subcategorias`
+--
+
+DROP TABLE IF EXISTS `subcategorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subcategorias` (
+  `pk_subcategorias` smallint(6) NOT NULL AUTO_INCREMENT,
+  `subcategoria` varchar(100) NOT NULL,
+  `fk_categorias` smallint(6) NOT NULL,
+  PRIMARY KEY (`pk_subcategorias`),
+  KEY `subcategorias_FK` (`fk_categorias`),
+  CONSTRAINT `subcategorias_FK` FOREIGN KEY (`fk_categorias`) REFERENCES `categorias` (`pk_categorias`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subcategorias`
+--
+
+LOCK TABLES `subcategorias` WRITE;
+/*!40000 ALTER TABLE `subcategorias` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subcategorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -272,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-06 22:21:16
+-- Dump completed on 2025-08-08 19:38:02
